@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 const initialState = {
-    id: Date.now(),
+    id: '',
     title: "",
     director: "",
     metascore: "",
