@@ -24,8 +24,7 @@ const UpdateMovie = (props) => {
     }, [params.id]);
 
     const handleChange = (e) => {
-        let value =
-          e.target.name === "stars" ? e.target.value.split(",") : e.target.value;
+        let value = e.target.name === "stars" ? e.target.value.split(",") : e.target.value;
         setMovie({ ...movie, [e.target.name]: value });
       };
 

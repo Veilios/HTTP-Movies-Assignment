@@ -3,21 +3,22 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 const initialState = {
-    id: '',
+    id: "",
     title: "",
     director: "",
     metascore: "",
     stars: [""]
 };
 
-const AddMovie = () => {
+const AddMovie = (props) => {
     const [newMovie, setNewMovie] = useState(initialState);
     const { push } = useHistory();
 
     const handleChange = e => {
+        let value = e.target.name === "stars" ? e.target.value.split(",") : e.target.value;
         setNewMovie({
             ...newMovie,
-            [e.target.name]: e.target.value
+            [e.target.name]: value
         });
     };
 
@@ -25,7 +26,9 @@ const AddMovie = () => {
         e.preventDefault();
         axios.post(`http://localhost:5000/api/movies`, newMovie)
             .then(res => {
-                console.log("NewMovie HandleSubmit res: ", res);
+                console.log("NewMovie HandleSubmit res: ", res.data);
+                props.setMovieList(res.data);
+                push("/");
             })
             .catch(err => console.error("Could not add new movie: ", err.message));
     };
