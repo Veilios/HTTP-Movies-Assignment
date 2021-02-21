@@ -61,12 +61,42 @@ body {
   padding: 5px 10px;
   background-color: lightseagreen;
 }
-.save-button:hover {
+
+.update-button {
+  position: absolute;
+  top: 65px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+}
+
+.delete-button {
+  position: absolute;
+  top: 105px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+}
+
+.save-button:hover, .update-button:hover, .delete-button:hover {
   background-color: green;
   color: white;
 }
 
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .home-button {
+  padding: 5px 10px;
+  background-color: lightskyblue;
+}
+
+.add-movie-button {
   padding: 5px 10px;
   background-color: lightskyblue;
 }
